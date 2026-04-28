@@ -14,18 +14,18 @@ WE NEEDED THAT: pinterest style crypto meme editor ✦ cult templates, drag & dr
 
 ## ok but what is this 
 
-so basically — 3iconic crypto meme templates, pinterest-style layout, built-in editor where you tap a meme and make it yours. add text, drag it around, slap some filters on it, download as png, copy to clipboard, or save to your vault for later.
+so basically: iconic crypto meme templates, pinterest style layout, built in editor where you tap a meme and make it yours. add text, drag it around, slap some filters on it, download as png, copy to clipboard, or save to your vault for later.
 
 making memes has never been this easy and i'm not even being dramatic rn ✦
 
 ## what's inside
 
-- 🎨 **pinterest grid** — masonry layout, every card different size, very aesthetically pleasing
+- 🎨 **pinterest grid** - masonry layout, every card different size, very aesthetically pleasing
 - ✏️ **full editor** — add text, drag, resize, put it wherever you want
 - 🔤 **fonts & styling** — impact, comic sans, pixel font + colors + stroke outline
 - 🎛️ **filters** — brightness, contrast, saturation, blur, the whole thing
 - 📥 **download as png** — one tap, done
-- 📋 **copy to clipboard** — paste straight into twitter/discord bestie
+- 📋 **copy to clipboard** — paste straight into twitter/discord/notlinkedin 
 - 🔒 **vault** — save your edits, come back to them whenever
 - ↩️ **undo/redo** — made a mistake? we don't know her
 - 📱 **mobile friendly** — works on ur phone too obvi
@@ -40,7 +40,7 @@ npm install
 npm run dev
 ```
 
-open `localhost:5173` and start creating bestie ✦
+open `localhost:5173` and start creating ✦
 
 ## adding your own memes
 
