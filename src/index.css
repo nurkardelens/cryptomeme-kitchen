@@ -1,0 +1,219 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: #0a0a0f;
+  color: #e0e0e0;
+  font-family: 'IBM Plex Mono', monospace;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Grain/noise overlay */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+  opacity: 0.035;
+  animation: grain 0.5s steps(1) infinite;
+}
+
+/* Ticker marquee */
+.ticker-track {
+  display: flex;
+  white-space: nowrap;
+  animation: ticker 35s linear infinite;
+}
+
+.ticker-track:hover {
+  animation-play-state: paused;
+}
+
+/* Masonry grid (react-masonry-css) */
+.masonry-grid {
+  display: flex;
+  width: 100%;
+  gap: 0;
+}
+
+.masonry-grid-column {
+  padding: 0 8px;
+  background-clip: padding-box;
+}
+
+.masonry-grid-column > div {
+  margin-bottom: 16px;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0f;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e1e2e;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00ff88;
+}
+
+/* Neon glow text utility */
+.glow-green {
+  text-shadow: 0 0 10px #00ff88, 0 0 20px #00ff88;
+}
+
+.glow-purple {
+  text-shadow: 0 0 10px #8b5cf6, 0 0 20px #8b5cf6;
+}
+
+.glow-red {
+  text-shadow: 0 0 10px #ff3366, 0 0 20px #ff3366;
+}
+
+/* Glassmorphism card */
+.glass {
+  background: rgba(19, 19, 26, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Neon border on hover */
+.neon-hover:hover {
+  box-shadow: 0 0 0 1px #00ff88, 0 0 20px rgba(0, 255, 136, 0.3);
+}
+
+/* Editor canvas area */
+.editor-canvas-wrapper {
+  position: relative;
+  display: inline-block;
+  user-select: none;
+}
+
+/* Draggable text overlay */
+.text-overlay-box {
+  position: absolute;
+  cursor: move;
+  user-select: none;
+  touch-action: none;
+}
+
+.text-overlay-box.selected {
+  outline: 2px dashed #00ff88;
+  outline-offset: 2px;
+}
+
+/* Range input styling */
+input[type='range'] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  border-radius: 2px;
+  background: #1e1e2e;
+  outline: none;
+}
+
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #00ff88;
+  cursor: pointer;
+  box-shadow: 0 0 6px rgba(0, 255, 136, 0.5);
+}
+
+input[type='range']::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #00ff88;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 0 6px rgba(0, 255, 136, 0.5);
+}
+
+/* Animated fade-in for cards */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.4s ease forwards;
+}
+
+/* Editor open animation */
+@keyframes editorOpen {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.editor-open {
+  animation: editorOpen 0.25s ease forwards;
+}
+
+/* Matrix rain particles (CSS only) */
+.particle {
+  position: absolute;
+  width: 2px;
+  border-radius: 1px;
+  animation: matrixFall linear infinite;
+  opacity: 0;
+}
+
+@keyframes matrixFall {
+  0% { opacity: 0; transform: translateY(-20px); }
+  10% { opacity: 0.8; }
+  90% { opacity: 0.4; }
+  100% { opacity: 0; transform: translateY(100vh); }
+}
+
+/* Pulse ring */
+@keyframes pulseRing {
+  0% { transform: scale(0.8); opacity: 1; }
+  100% { transform: scale(2); opacity: 0; }
+}
+
+.pulse-ring::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: inherit;
+  border: 2px solid #00ff88;
+  animation: pulseRing 1.5s ease-out infinite;
+}
